@@ -23,8 +23,60 @@ nav {
 }
 nav a {
   color: var(--color-2);
-  text-decoration: none;  
+  text-decoration: none;
 }
 nav div a {
   margin-right: 20px;
+}
+
+section {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+  box-shadow: 1px 2px 10px var(--color-4);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+section h3 {
+  text-align: center;
+  font-size: 20px;
+  color: var(--color-4);
+}
+/* Register */
+section .form {
+  margin-top: 30px;
+  padding: 0px 20px;
+}
+.input_container {
+  margin-top: 20px;
+}
+.input_container input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  margin-top: 10px;
+  border: 1px solid var(--color-6);
+  border-radius: 5px;
+}
+.btn_container {
+  margin: 10px 0px;
+  text-align: center;
+}
+.btn {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid var(--color-4);
+  background: var(--color-1);
+  color: var(--color-2);
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+  font-size: 16px;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.error {
+  text-align: center;
+  color: var(--color-5);
 }
