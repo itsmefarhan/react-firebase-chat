@@ -166,3 +166,17 @@ section .form {
 .offline {
   background: var(--color-5);
 }
+.messages_container {
+  position: relative;
+  width: 100%;
+}
+.messages_user {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid var(--color-6);
+}
+.no_conv {
+  font-size: 20px;
+  color: var(--color-4);
+  text-align: center;
+}
