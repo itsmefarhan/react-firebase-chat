@@ -8,6 +8,10 @@ import {
   addDoc,
   Timestamp,
   orderBy,
+  setDoc,
+  doc,
+  getDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import User from "../components/User";
@@ -38,7 +42,7 @@ const Home = () => {
     return () => unsub();
   }, []);
 
-  const selectUser = (user) => {
+  const selectUser = async (user) => {
     setChat(user);
     console.log(user);
 
@@ -55,9 +59,12 @@ const Home = () => {
       });
       setMsgs(msgs);
     });
-  };
 
-  console.log(msgs);
+    const docSnap = await getDoc(doc(db, "lastMsg", id));
+    if (docSnap.data()?.from !== user1) {
+      await updateDoc(doc(db, "lastMsg", id), { unread: false });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -84,13 +91,29 @@ const Home = () => {
       createdAt: Timestamp.fromDate(new Date()),
       media: url || "",
     });
+
+    await setDoc(doc(db, "lastMsg", id), {
+      text,
+      from: user1,
+      to: user2,
+      createdAt: Timestamp.fromDate(new Date()),
+      media: url || "",
+      unread: true,
+    });
+
     setText("");
   };
   return (
     <div className="home_container">
       <div className="users_container">
         {users.map((user) => (
-          <User key={user.uid} user={user} selectUser={selectUser} />
+          <User
+            key={user.uid}
+            user={user}
+            selectUser={selectUser}
+            user1={user1}
+            chat={chat}
+          />
         ))}
       </div>
       <div className="messages_container">
