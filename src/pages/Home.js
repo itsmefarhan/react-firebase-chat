@@ -7,16 +7,19 @@ import {
   onSnapshot,
   addDoc,
   Timestamp,
+  orderBy,
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import User from "../components/User";
 import MessageForm from "../components/MessageForm";
+import Message from "../components/Message";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState("");
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
+  const [msgs, setMsgs] = useState([]);
 
   const user1 = auth.currentUser.uid;
 
@@ -38,7 +41,23 @@ const Home = () => {
   const selectUser = (user) => {
     setChat(user);
     console.log(user);
+
+    const user2 = user.uid;
+    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+
+    const msgsRef = collection(db, "messages", id, "chat");
+    const q = query(msgsRef, orderBy("createdAt", "asc"));
+
+    onSnapshot(q, (querySnapshot) => {
+      let msgs = [];
+      querySnapshot.forEach((doc) => {
+        msgs.push(doc.data());
+      });
+      setMsgs(msgs);
+    });
   };
+
+  console.log(msgs);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,6 +98,13 @@ const Home = () => {
           <>
             <div className="messages_user">
               <h3>{chat.name}</h3>
+            </div>
+            <div className="messages">
+              {msgs.length
+                ? msgs.map((msg, i) => (
+                    <Message key={i} msg={msg} user1={user1} />
+                  ))
+                : null}
             </div>
             <MessageForm
               handleSubmit={handleSubmit}
