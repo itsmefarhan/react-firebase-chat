@@ -41,7 +41,7 @@ const Profile = () => {
             avatar: url,
             avatarPath: snap.ref.fullPath,
           });
-          console.log(url);
+
           setImg("");
         } catch (err) {
           console.log(err.message);
