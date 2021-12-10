@@ -104,6 +104,7 @@ const Home = () => {
     });
 
     setText("");
+    setImg("");
   };
   return (
     <div className="home_container">
