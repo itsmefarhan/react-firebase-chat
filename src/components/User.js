@@ -13,7 +13,7 @@ const User = ({ user1, user, selectUser, chat }) => {
       setData(doc.data());
     });
     return () => unsub();
-  }, []);
+  }, [user1, user2]);
 
   return (
     <>

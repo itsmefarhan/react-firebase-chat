@@ -21,10 +21,12 @@ nav {
   background-color: var(--color-1);
   border-bottom: 1px solid var(--color-6);
 }
+
 nav a {
   color: var(--color-2);
   text-decoration: none;
 }
+
 nav div a {
   margin-right: 20px;
 }
@@ -37,19 +39,23 @@ section {
   padding: 10px 20px;
   border-radius: 5px;
 }
+
 section h3 {
   text-align: center;
   font-size: 20px;
   color: var(--color-4);
 }
+
 /* Register */
 section .form {
   margin-top: 30px;
   padding: 0px 20px;
 }
+
 .input_container {
   margin-top: 20px;
 }
+
 .input_container input {
   width: 100%;
   padding: 10px;
@@ -58,10 +64,12 @@ section .form {
   border: 1px solid var(--color-6);
   border-radius: 5px;
 }
+
 .btn_container {
   margin: 10px 0px;
   text-align: center;
 }
+
 .btn {
   padding: 10px;
   border-radius: 5px;
@@ -73,9 +81,11 @@ section .form {
   transition: 0.3s ease-in-out all;
   font-size: 16px;
 }
+
 .btn:hover {
   transform: scale(1.05);
 }
+
 .error {
   text-align: center;
   color: var(--color-5);
@@ -86,10 +96,12 @@ section .form {
   display: flex;
   align-items: center;
 }
+
 .img_container {
   position: relative;
   margin-right: 20px;
 }
+
 .img_container img {
   width: 100px;
   height: 100px;
@@ -97,12 +109,15 @@ section .form {
   border: 1px solid var(--color-4);
   transition: 0.5s ease-in-out all;
 }
+
 .img_container:hover img {
   opacity: 0.4;
 }
+
 .img_container:hover .overlay {
   opacity: 1;
 }
+
 .overlay {
   transition: 0.5s ease;
   opacity: 0;
@@ -112,9 +127,11 @@ section .form {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .text_container {
   flex-grow: 1;
 }
+
 .text_container h3 {
   text-align: left;
 }
@@ -127,59 +144,72 @@ section .form {
   height: calc(100vh - 70px);
   width: 100vw;
 }
+
 .users_container {
   margin-top: 10px;
   border-right: 2px solid var(--color-6);
   overflow-y: auto;
 }
+
 .user_wrapper {
   margin-bottom: 10px;
   padding: 10px;
   cursor: pointer;
 }
+
 .user_info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .user_detail {
   display: flex;
   align-items: center;
 }
+
 .user_detail h4 {
   margin-left: 10px;
 }
+
 .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: 1px solid var(--color-4);
 }
+
 .user_status {
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
+
 .online {
   background: #34eb52;
 }
+
 .offline {
   background: var(--color-5);
 }
+
 .messages_container {
   position: relative;
   width: 100%;
 }
+
 .messages_user {
   padding: 10px;
   text-align: center;
   border-bottom: 2px solid var(--color-6);
 }
+
 .no_conv {
   font-size: 20px;
   color: var(--color-4);
   text-align: center;
 }
+
 .message_form {
   position: absolute;
   bottom: 0;
@@ -189,6 +219,7 @@ section .form {
   display: flex;
   align-items: center;
 }
+
 .message_form input {
   width: 40vw;
   margin: 0px 10px 10px;
@@ -197,22 +228,27 @@ section .form {
   outline: none;
   border: none;
 }
+
 .message_form .btn {
   margin-top: -10px;
 }
+
 .messages {
   height: calc(100vh - 200px);
   overflow-y: auto;
   border-bottom: 1px solid var(--color-6);
 }
+
 .message_wrapper {
   margin-top: 5px;
   padding: 0px 5px;
 }
+
 .message_wrapper img {
   width: 100%;
   border-radius: 5px;
 }
+
 .message_wrapper p {
   padding: 10px;
   display: inline-block;
@@ -220,24 +256,30 @@ section .form {
   text-align: left;
   border-radius: 5px;
 }
+
 .message_wrapper small {
   display: inline-block;
   margin-top: 15px;
   opacity: 0.8;
 }
+
 .message_wrapper.own {
   text-align: right;
 }
+
 .me {
   background: var(--color-3);
   color: white;
 }
+
 .friend {
   background: var(--color-6);
 }
+
 .selected_user {
   background: var(--color-6);
 }
+
 .truncate {
   font-size: 14px;
   white-space: nowrap;
@@ -245,9 +287,11 @@ section .form {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .truncate strong {
   margin-right: 10px;
 }
+
 .unread {
   margin-left: 10px;
   background: var(--color-3);
@@ -255,18 +299,22 @@ section .form {
   padding: 2px 4px;
   border-radius: 10px;
 }
+
 .sm_screen {
   display: none;
 }
+
 @media screen and (max-width: 767px) {
   .home_container {
     grid-template-columns: 2fr 3fr;
   }
+
   .message_form {
     left: 3%;
     right: 0;
     bottom: 5px;
   }
+
   .message_wrapper p {
     max-width: 75%;
   }
@@ -276,21 +324,26 @@ section .form {
   .home_container {
     grid-template-columns: 1fr 5fr;
   }
+
   .user_wrapper {
     display: none;
   }
+
   .sm_container {
     padding: 10px 0px;
     text-align: center;
     cursor: pointer;
   }
+
   .sm_screen {
     display: inline-block;
   }
+
   .message_form input {
     width: 50vw;
     margin: 0px 10px;
   }
+
   .message_form .btn {
     margin: 0px;
   }
