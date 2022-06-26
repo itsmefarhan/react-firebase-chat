@@ -40,7 +40,7 @@ const Home = () => {
       setUsers(users);
     });
     return () => unsub();
-  }, []);
+  }, [user1]);
 
   const selectUser = async (user) => {
     setChat(user);
@@ -128,8 +128,8 @@ const Home = () => {
             <div className="messages">
               {msgs.length
                 ? msgs.map((msg, i) => (
-                    <Message key={i} msg={msg} user1={user1} />
-                  ))
+                  <Message key={i} msg={msg} user1={user1} />
+                ))
                 : null}
             </div>
             <MessageForm
